@@ -19,13 +19,17 @@
 				adjustedDate = this;
 			}
 
+			result.adjusted = adjustedDate;
+			result.week = adjustedDate.week();
 			result.quarter = adjustedDate.quarter();
 			result.year = adjustedDate.year();
 			result.nextYear = (nextYear) ? nextYear.year() : nextYear;
+			result.fiscalYear = (nextYear) ?
+				result.year + "/" + nextYear.format("YY") :
+				result.year;
 
 			result.toString = function () {
-				var str = initial + result.quarter + " " + result.year;
-				return (nextYear) ? str + "/" + nextYear.format("YY") : str;
+				var str = initial + result.quarter + " " + result.fiscalYear;
 			};
 
 			return result;
