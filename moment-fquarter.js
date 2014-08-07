@@ -19,7 +19,7 @@
 				adjustedDate = this;
 			}
 
-			result.quarter = Math.ceil((adjustedDate.month() + 1.0) / 3.0);
+			result.quarter = adjustedDate.quarter();
 			result.year = adjustedDate.year();
 			result.nextYear = (nextYear) ? nextYear.year() : nextYear;
 
